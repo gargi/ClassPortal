@@ -1,0 +1,14 @@
+<h1> Show instructor </h1>
+
+<p>
+  <strong>Email:</strong>
+  <%= @instructor.email %>
+</p>
+ 
+<p>
+  <strong>Name:</strong>
+  <%= @instructor.name %>
+</p>
+
+<%= link_to 'Edit', edit_instructor_path(@instructor) %> |
+<%= link_to 'Back', admins_path %>

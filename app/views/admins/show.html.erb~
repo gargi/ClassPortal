@@ -1,0 +1,39 @@
+<h1> Show admin </h1>
+
+<p>
+  <strong>Email:</strong>
+  <%= @admin.email %>
+</p>
+ 
+<p>
+  <strong>Text:</strong>
+  <%= @admin.text %>
+</p>
+
+<h2>Comments</h2>
+<% @admin.comments.each do |comment| %>
+  <p>
+    <strong>Commenter:</strong>
+    <%= comment.commenter %>
+  </p>
+ 
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+  </p>
+<% end %>
+
+<h2>Add a comment:</h2>
+<%= form_for([@admin, @admin.comments.build]) do |f| %>
+  <p>
+    <%= f.label :commenter %><br>
+    <%= f.text_field :commenter %>
+  </p>
+  <p>
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </p>
+<% end %>
+
+<%= link_to 'Edit', edit_admin_path(@admin) %> |
+<%= link_to 'Back', admins_path %>
