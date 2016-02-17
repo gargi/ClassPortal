@@ -1,6 +1,6 @@
 <h1>New admin</h1>
 
-<%= form_for @admin, url: { action: "create_admin" } do |f| %>
+<%= form_for @admin do |f| %>
 
 <% if @admin.errors.any? %>
     <div id="error_explanation">

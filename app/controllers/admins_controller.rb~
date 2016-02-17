@@ -21,7 +21,7 @@ class AdminsController < ApplicationController
     if @admin.save
     	redirect_to @admin
     else
-        render 'new_admin'
+        render 'new_admin_admins_path'
     end
   end
 
@@ -131,6 +131,8 @@ class AdminsController < ApplicationController
     redirect_to courses_path
   end
 
+  private
+
   def course_params
     params.require(:course).permit(:cno,:title,:description,:instructor,:start,:end,:status)
   end
@@ -139,7 +141,6 @@ class AdminsController < ApplicationController
     params.require(:course).permit(:title,:description,:instructor,:start,:end,:status)
   end
 
-  private
   def instructor_params
     params.require(:instructor).permit(:email,:name,:password)
   end
