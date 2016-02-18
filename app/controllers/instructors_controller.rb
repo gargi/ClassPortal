@@ -1,81 +1,54 @@
 class InstructorsController < ApplicationController
-  
-  def edit_instructor
+  def index
+    @instructors = Instructor.all
+  end
+
+  def show
     @instructor = Instructor.find(params[:id])
   end
 
-  def update_instructor
+  def new
+    @instructor = Instructor.new
+  end
+
+  def edit
+    @instructor = Instructor.find(params[:id])
+  end
+
+  def create
+    @instructor = Instructor.new(instructor_params)
+    
+    if @instructor.save
+    	redirect_to @instructor
+    else
+        render 'new'
+    end
+  end
+
+  def update
     @instructor = Instructor.find(params[:id])
     if @instructor.update(instructor_params_update)
       redirect_to @instructor
     else
-      render 'edit_instructor'
+      render 'edit'
     end
   end
 
-  def index_course
-    @courses = Course.all
-  end
-
-  def show_course
-    @course = Course.find(params[:id])
-  end
-
-  def index_course
-    @courses = Course.all
-  end
-
-  def show_course
-    @course = Course.find(params[:id])
-  end
-
-  def new_course
-    @course = Course.new
-  end
-
-  def edit_course
-    @course = Course.find(params[:id])
-  end
-
-  def create_course
-    @course = Course.new(course_params)
+  def destroy
+    @instructor = Instructor.find(params[:id])
     
-    if @course.save
-    	redirect_to @course
-    else
-        render 'new_course'
-    end
-  end
-
-  def update_course
-    @course = Course.find(params[:id])
-    if @course.update(course_params_update)
-      redirect_to @course
-    else
-      render 'edit_course'
-    end
-  end
-
-  def destroy_course
-    @course = Course.find(params[:id])
-    
-    @course.destroy
+    @instructor.destroy
  
-    redirect_to courses_path
+    redirect_to instructors_path
   end
 
- 
   private
+
+  def instructor_params
+    params.require(:instructor).permit(:email,:name,:password)
+  end
+
   def instructor_params_update
     params.require(:instructor).permit(:name,:password)
   end
-
-  def course_params
-    params.require(:course).permit(:cno,:title,:description,:instructor,:start,:end,:status)
-  end
-
-  def course_params_update
-    params.require(:course).permit(:title,:description,:instructor,:start,:end,:status)
-  end
-
 end

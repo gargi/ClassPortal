@@ -1,22 +1,21 @@
-<h1>New admin</h1>
-
-<%= form_for @admin, url: { action: "create" } do |f| %>
-
-<% if @admin.errors.any? %>
+<h1>Editing instructor</h1>
+ 
+<%= form_for :instructor, url: instructor_path(@instructor), method: :patch do |f| %>
+ 
+  <% if @instructor.errors.any? %>
     <div id="error_explanation">
       <h2>
-        <%= pluralize(@admin.errors.count, "error") %> prohibited
-        this admin from being saved:
+        <%= pluralize(@instructor.errors.count, "error") %> prohibited
+        this instructor from being saved:
       </h2>
       <ul>
-        <% @admin.errors.full_messages.each do |msg| %>
+        <% @instructor.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
  
-  
   <p>
     <%= f.label :email %><br>
     <%= f.email_field :email %>
@@ -32,10 +31,10 @@
     <%= f.password_field :password %>
   </p>
  
-
   <p>
-    <%= f.submit(:url => {:controller => 'admins', :action => 'show_admin'}) %>
+    <%= f.submit %>
   </p>
+ 
 <% end %>
-
-<%= link_to 'Back', controller: 'admins', action: 'index' %>
+ 
+<%= link_to 'Back', instructors_path %>

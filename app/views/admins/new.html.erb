@@ -1,6 +1,6 @@
 <h1>New admin</h1>
 
-<%= form_for @admin, url: { action: "create_admin" } do |f| %>
+<%= form_for @admin, url: { action: "create" } do |f| %>
 
 <% if @admin.errors.any? %>
     <div id="error_explanation">
@@ -34,8 +34,8 @@
  
 
   <p>
-    <%= f.submit(:url => {:controller => 'admins', :action => 'show_admin'}) %>
+    <%= f.submit(:url => {:controller => 'admins', :action => 'show'}) %>
   </p>
 <% end %>
 
-<%= link_to 'Back', controller: 'admins', action: 'index_admin' %>
+<%= link_to 'Back', controller: 'admins', action: 'index' %>
