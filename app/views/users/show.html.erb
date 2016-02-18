@@ -1,0 +1,19 @@
+<h1>
+  <center>
+    Welcome <%= current_user.name %>
+  </center>
+</h1>
+<body>
+<center>
+  <% if current_user.type == 'admin'%>
+    <%= link_to "Admin Functionalities", login_path%>
+      <%= link_to 'Instructor Functionalities', sessions_new_path%>
+      <%= link_to 'Student Functionalities', sessions_new_path%>
+  <% elsif current_user.type == 'admin'%>
+    <%= link_to 'Instructor Functionalities', sessions_new_path%>
+  <% else %>
+    <%= link_to 'Student Functionalities', sessions_new_path%>
+  <% end %>
+
+</center>
+</body>

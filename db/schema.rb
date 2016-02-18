@@ -11,14 +11,53 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160214163008) do
+ActiveRecord::Schema.define(version: 20160218183455) do
 
   create_table "admins", force: :cascade do |t|
-    t.string   "email"
-    t.string   "name"
-    t.string   "password"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "email",      limit: 255
+    t.string   "name",       limit: 255
+    t.string   "password",   limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "courses", force: :cascade do |t|
+    t.string   "course_number", limit: 255
+    t.string   "title",         limit: 255
+    t.text     "description",   limit: 65535
+    t.date     "start_date"
+    t.date     "end_date"
+    t.string   "status",        limit: 255
+    t.integer  "instructor_id", limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "courses", ["course_number"], name: "index_courses_on_course_number", unique: true, using: :btree
+
+  create_table "instructors", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "email",      limit: 255
+    t.string   "password",   limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "email",      limit: 255
+    t.string   "password",   limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name",            limit: 255
+    t.string   "email",           limit: 255
+    t.string   "password_digest", limit: 255
+    t.string   "type",            limit: 255
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
 end
