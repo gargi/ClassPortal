@@ -9,37 +9,6 @@ Rails.application.routes.draw do
 
   Rails.application.routes.draw do
   resources :admins do
-    collection do
-      get :index_admin
-      get :index_course
-      get :index_instructor
-      get :index_student
-      get :new_admin
-      get :new_course
-      get :new_instructor
-      get :new_student
-      get :show_admin
-      get :show_course
-      get :show_instructor
-      get :show_student
-      get :edit_admin
-      get :edit_course
-      get :edit_instructor
-      get :edit_student
-      post :create_admin
-      get :create_course
-      get :create_instructor
-      get :create_student
-      get :destroy_admin
-      get :destroy_course
-      get :destroy_instructor
-      get :destroy_student
-      get :update_admin
-      get :update_course
-      get :update_instructor
-      get :update_student
-    end
-  end
   resources :courses
   resources :students
   resources :instructors

@@ -1,6 +1,6 @@
 <h1>Editing admin</h1>
  
-<%= form_for :admin, url: admin_path(@admin), method: :patch do |f| %>
+<%= form_for @admin, url: { action: "update_admin" }, method: :patch do |f| %>
  
   <% if @admin.errors.any? %>
     <div id="error_explanation">
@@ -18,7 +18,7 @@
  
   <p>
     <%= f.label :email %><br>
-    <%= f.text_field :email %>
+    <%= f.email_field :email %>
   </p>
  
   <p>
