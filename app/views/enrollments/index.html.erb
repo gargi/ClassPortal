@@ -1,0 +1,27 @@
+<h1>Listing enrollments</h1>
+
+<%= link_to 'New Enrollment', controller: 'enrollments', action: 'new'%> 
+<table>
+  <tr>
+    <th>Student</th>
+    <th>Course</th>
+    <th>Grade</th>
+    <th>Status</th>
+    <th colspan="2"></th>
+  </tr>
+ 
+  <% @enrollments.each do |enrollment| %>
+    <tr>
+      <td><%= enrollment.user %></td>
+      <td><%= enrollment.course %></td>
+      <td><%= enrollment.status %></td>
+      <td><%= enrollment.grade %></td>
+      <td><%= link_to 'View', enrollment_path(enrollment) %></td>
+      <td><%= link_to 'Edit', edit_enrollment_path(enrollment) %></td>
+      <td><%= link_to 'Delete', enrollment_path(enrollment),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
