@@ -2,8 +2,12 @@
   <h1><center>Welcome to the Class Portal</center></h1>
   <body>
   <center>
-    <%= link_to 'Login', login_path %>
-    <%= link_to 'Signup', signup_path %>
+    <% if logged_in? %>
+        <%= link_to 'Logout', logout_path %>
+    <% else %>
+      <%= link_to 'Login', login_path %>
+      <%= link_to 'Signup', signup_path %>
+    <% end %>
   </center>
   </body>
 </div>

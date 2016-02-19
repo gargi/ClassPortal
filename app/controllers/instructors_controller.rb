@@ -1,11 +1,11 @@
 class InstructorsController < ApplicationController
   
   def edit_instructor
-    @instructor = Instructor.find(params[:id])
+    @instructor = User.find(params[:id])
   end
 
   def update_instructor
-    @instructor = Instructor.find(params[:id])
+    @instructor = User.find(params[:id])
     if @instructor.update(instructor_params_update)
       redirect_to @instructor
     else

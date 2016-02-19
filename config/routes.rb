@@ -10,28 +10,29 @@
   get 'references' => 'common_pages#references'
   get 'help' => 'common_pages#help'
 
-    get 'home/index'
+  get 'home/index'
   get 'sessions/new'
   get 'sessions/index' => 'sessions#new'
-
   get 'users/new'
-
   get 'users/create' => 'home#index'
-
   get 'users/index'
-
+  get 'users/edit' => 'users#edit'
   get 'users/show'
   get 'signup' => 'users#new'
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
+  get 'logout'  => 'sessions#destroy'
+
+
+  get 'admins/index' => 'admins#index '
+  get 'admins/show' => 'admins#show'
   resources :users
   resources :admins
   resources :courses
   resources :students
   resources :instructors
   root 'home#index'
-
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
