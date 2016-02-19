@@ -1,11 +1,11 @@
 class InstructorsController < ApplicationController
   
   def edit_instructor
-    @instructor = Instructor.find(params[:id])
+    @instructor = User.find(params[:id])
   end
 
   def update_instructor
-    @instructor = Instructor.find(params[:id])
+    @instructor = User.find(params[:id])
     if @instructor.update(instructor_params_update)
       redirect_to @instructor
     else
@@ -69,4 +69,13 @@ class InstructorsController < ApplicationController
   def instructor_params_update
     params.require(:instructor).permit(:name,:password)
   end
+
+  def course_params
+    params.require(:course).permit(:cno,:title,:description,:instructor,:start,:end,:status)
+  end
+
+  def course_params_update
+    params.require(:course).permit(:title,:description,:instructor,:start,:end,:status)
+  end
+
 end

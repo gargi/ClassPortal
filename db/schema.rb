@@ -13,6 +13,14 @@
 
 ActiveRecord::Schema.define(version: 20160218183455) do
 
+  create_table "admins", force: :cascade do |t|
+    t.string   "email",      limit: 255
+    t.string   "name",       limit: 255
+    t.string   "password",   limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
   create_table "courses", force: :cascade do |t|
     t.string   "course_number", limit: 255
     t.string   "title",         limit: 255
@@ -26,6 +34,37 @@ ActiveRecord::Schema.define(version: 20160218183455) do
   end
 
   add_index "courses", ["course_number"], name: "index_courses_on_course_number", unique: true, using: :btree
+
+  create_table "enrollment_requests", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "grades", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "histories", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "instructors", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "email",      limit: 255
+    t.string   "password",   limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "email",      limit: 255
+    t.string   "password",   limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name",            limit: 255

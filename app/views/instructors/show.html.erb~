@@ -1,14 +1,14 @@
-<h1> Show admin </h1>
+<h1> Show instructor </h1>
 
 <p>
   <strong>Email:</strong>
-  <%= @admin.email %>
+  <%= @instructor.email %>
 </p>
  
 <p>
   <strong>Name:</strong>
-  <%= @admin.name %>
+  <%= @instructor.name %>
 </p>
 
-<%= link_to 'Edit', edit_admin_path(@admin) %> |
-<%= link_to 'Back', admins_path %>
+<%= link_to 'Edit', edit_instructor_path(@instructor) %> |
+<%= link_to 'Back', instructors_path %>

@@ -1,81 +1,54 @@
 class InstructorsController < ApplicationController
-  
-  def edit_instructor
-    @instructor = User.find(params[:id])
+  def index
+    @users = User.where("type = ?","instructor")
   end
 
-  def update_instructor
-    @instructor = User.find(params[:id])
-    if @instructor.update(instructor_params_update)
-      redirect_to @instructor
+  def show
+    @user = User.find(params[:id])
+  end
+
+  def new
+    @user = User.new
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def create
+    @user = User.new(user_params)
+    @user[:type] = 'instructor'
+    if @user.save
+    	redirect_to @user
     else
-      render 'edit_instructor'
+        render 'new'
     end
   end
 
-  def index_course
-    @courses = Course.all
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params_update)
+      redirect_to @user
+    else
+      render 'edit'
+    end
   end
 
-  def show_course
-    @course = Course.find(params[:id])
-  end
-
-  def index_course
-    @courses = Course.all
-  end
-
-  def show_course
-    @course = Course.find(params[:id])
-  end
-
-  def new_course
-    @course = Course.new
-  end
-
-  def edit_course
-    @course = Course.find(params[:id])
-  end
-
-  def create_course
-    @course = Course.new(course_params)
+  def destroy
+    @user = User.find(params[:id])
     
-    if @course.save
-    	redirect_to @course
-    else
-        render 'new_course'
-    end
-  end
-
-  def update_course
-    @course = Course.find(params[:id])
-    if @course.update(course_params_update)
-      redirect_to @course
-    else
-      render 'edit_course'
-    end
-  end
-
-  def destroy_course
-    @course = Course.find(params[:id])
-    
-    @course.destroy
+    @user.destroy
  
-    redirect_to courses_path
+    redirect_to users_path
   end
 
- 
   private
-  def instructor_params_update
-    params.require(:instructor).permit(:name,:password)
+
+  def user_params
+    params.require(:user).permit(:email,:name,:password,:passwordconfirmation)
   end
 
-  def course_params
-    params.require(:course).permit(:cno,:title,:description,:instructor,:start,:end,:status)
+  def user_params_update
+    params.require(:user).permit(:name,:password,:passwordconfirmation)
   end
-
-  def course_params_update
-    params.require(:course).permit(:title,:description,:instructor,:start,:end,:status)
-  end
-
 end

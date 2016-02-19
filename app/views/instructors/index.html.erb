@@ -1,21 +1,20 @@
 <h1>Listing instructors</h1>
 
-<%= link_to 'New instructor', new_instructor_path %>
- 
+<%= link_to 'New instructor', controller: 'instructors', action: 'new'%> 
 <table>
   <tr>
     <th>Email</th>
     <th>Name</th>
-    <th colspan="2"></th>
+    <th colspan="4"></th>
   </tr>
  
-  <% @instructors.each do |instructor| %>
+  <% @users.each do |user| %>
     <tr>
-      <td><%= instructor.email %></td>
-      <td><%= instructor.name %></td>
-      <td><%= link_to 'View', instructor_path(instructor) %></td>
-      <td><%= link_to 'Edit', edit_instructor_path(instructor) %></td>
-      <td><%= link_to 'Delete', instructor_path(instructor),
+      <td><%= user.email %></td>
+      <td><%= user.name %></td>
+      <td><%= link_to 'View', instructor_path(user) %></td>
+      <td><%= link_to 'Edit', edit_instructor_path(user) %></td>
+      <td><%= link_to 'Delete', instructor_path(user),
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
     </tr>
