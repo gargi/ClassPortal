@@ -1,0 +1,15 @@
+<h1>Listing Announcements</h1>
+
+<%= link_to 'New Announcement', controller: 'material', action: 'new'%> 
+<table>
+  
+  <% @materials.each do |material| %>
+    <tr>
+      <td><%= material.content %></td>
+      <td><%= link_to 'Delete', enrollment_path(enrollment),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
