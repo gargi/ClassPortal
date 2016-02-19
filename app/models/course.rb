@@ -1,7 +1,5 @@
 class Course < ActiveRecord::Base
-  belongs_to :instructor
-
-  has_many :students
+  has_many :users
 
   validates :course_number, :presence=>true
   validates :title, :presence=>true
