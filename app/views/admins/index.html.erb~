@@ -1,21 +1,20 @@
 <h1>Listing admins</h1>
 
-<%= link_to 'New admin', new_admin_path %>
- 
+<%= link_to 'New Admin', controller: 'admins', action: 'new'%> 
 <table>
   <tr>
-    <th>Eamil</th>
+    <th>Email</th>
     <th>Name</th>
     <th colspan="2"></th>
   </tr>
  
-  <% @admins.each do |admin| %>
+  <% @users.each do |user| %>
     <tr>
-      <td><%= admin.email %></td>
-      <td><%= admin.name %></td>
-      <td><%= link_to 'View', admin_path(admin) %></td>
-      <td><%= link_to 'Edit', edit_admin_path(admin) %></td>
-      <td><%= link_to 'Delete', admin_path(admin),
+      <td><%= user.email %></td>
+      <td><%= user.name %></td>
+      <td><%= link_to 'View', admin_path(user) %></td>
+      <td><%= link_to 'Edit', edit_admin_path(user) %></td>
+      <td><%= link_to 'Delete', admin_path(user),
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
     </tr>

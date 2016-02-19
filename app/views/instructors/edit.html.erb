@@ -1,15 +1,15 @@
 <h1>Editing instructor</h1>
  
-<%= form_for :instructor, url: instructor_path(@instructor), method: :patch do |f| %>
+<%= form_for @user, url: { action: "update" }, method: :patch do |f| %>
  
-  <% if @instructor.errors.any? %>
+  <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2>
-        <%= pluralize(@instructor.errors.count, "error") %> prohibited
-        this instructor from being saved:
+        <%= pluralize(@user.errors.count, "error") %> prohibited
+        this user from being saved:
       </h2>
       <ul>
-        <% @instructor.errors.full_messages.each do |msg| %>
+        <% @user.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>

@@ -7,7 +7,7 @@
 <center>
   <% if current_user.type == 'admin'%>
     <%= link_to "Admin Functionalities", controller: 'admins', action:'index' %>
-      <%= link_to 'Instructor Functionalities', controller: 'instructors', action:'index' %>
+      <%= link_to 'Instructor Functionalities', sessions_new_path%>
       <%= link_to 'Student Functionalities', sessions_new_path%>
   <% elsif current_user.type == 'admin'%>
     <%= link_to 'Instructor Functionalities', sessions_new_path%>

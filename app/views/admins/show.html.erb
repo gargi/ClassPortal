@@ -2,13 +2,13 @@
 
 <p>
   <strong>Email:</strong>
-  <%= @admin.email %>
+  <%= @user.email %>
 </p>
  
 <p>
   <strong>Name:</strong>
-  <%= @admin.name %>
+  <%= @user.name %>
 </p>
 
-<%= link_to 'Edit', edit_admin_path(@admin) %> |
+<%= link_to 'Edit', controller: 'admins', action: 'index' %> |
 <%= link_to 'Back', admins_path %>
