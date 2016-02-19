@@ -12,7 +12,7 @@
       |
       <%= link_to 'Student Functionalities', controller: 'students', action: 'index'%>
       |
-      <%= link_to 'Course Functionalities', sessions_new_path%>
+      <%= link_to 'Course Functionalities', controller: 'courses', action: 'index'%>
   <% elsif current_user.type == 'instructor'%>
     <%= link_to 'Instructor Functionalities', sessions_new_path%>
   <% else %>
