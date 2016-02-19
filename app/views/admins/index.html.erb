@@ -15,9 +15,9 @@
         <td><%= admin.name %></td>
         <td><%= link_to 'View', admin_path(admin) %></td>
         <td><%= link_to 'Edit', edit_admin_path(admin) %></td>
-        <td><%= link_to 'Delete', admin_path(admin),
+        <td><%= link_to_if((admin.email != current_user.email), 'Delete', admin_path(admin),
                         method: :delete,
-                        data: { confirm: 'Are you sure?' } %></td>
+                        data: { confirm: 'Are you sure?' }) %></td>
       </tr>
   <% end %>
 </table>
