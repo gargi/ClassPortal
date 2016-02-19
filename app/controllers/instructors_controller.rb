@@ -39,7 +39,7 @@ class InstructorsController < ApplicationController
     
     @user.destroy
  
-    redirect_to users_path
+    redirect_to instructors_path
   end
 
   private
