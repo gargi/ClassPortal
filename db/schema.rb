@@ -26,11 +26,12 @@ ActiveRecord::Schema.define(version: 20160219061010) do
   end
 
   create_table "enrollments", force: :cascade do |t|
-    t.string   "grade",         limit: 255
-    t.string   "course_id",     limit: 255
-    t.string   "instructor_id", limit: 255
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.string   "grade",      limit: 255
+    t.string   "course_id",  limit: 255
+    t.string   "user_id",    limit: 255
+    t.string   "status",     limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "materials", force: :cascade do |t|

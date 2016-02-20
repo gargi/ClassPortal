@@ -1,12 +1,18 @@
 class MaterialsController < ApplicationController
-  def index c
-    @materials = Material.where(:course_id => c.id)
+  def index
+    @materials = Material.where(:course_id => params[:course_id])
   end
+
 
   def new
     @material = Material.new
   end
 
+  def student_course_material
+
+      @materials = Material.where(:course_id => params[:course_id])
+
+  end
   def edit
     @material = Material.find(params[:id])
   end

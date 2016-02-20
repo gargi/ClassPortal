@@ -1,0 +1,12 @@
+<h1>Listing Material</h1>
+
+<table>
+<tr>
+  <th>Materials for the course</th>
+</tr>
+  <% @materials.each do |material| %>
+      <tr>
+        <td><%= material.content %></td>
+      </tr>
+  <% end %>
+</table>

@@ -48,16 +48,17 @@ class EnrollmentsController < ApplicationController
 
   #Student requests enrollment
 
-  def request c
+  def request
     @enrollment = Enrollment.new
-    @enrollment[:user_id] = User.find_by(email: session[:email]).id
-    @enrollment[:course_id] = c.id
+    @enrollment[:grade] = 'NA'
+    @enrollment[:user_id] = current_user.id
+    @enrollment[:course_id] = params[:c]
     @enrollment[:status] = 'no'
     @enrollment.save
   end
 
-  def drop c
-    @enrollment = Enrollment.where("course_id = ?",c.id)
+  def drop
+    @enrollment = Enrollment.where("course_id = ? and user_id = ?",params[:course_id], params[:student_id])
     if @enrollment[:grade].to_s == ''
       @enrollment[:status] = 'no'
     end
