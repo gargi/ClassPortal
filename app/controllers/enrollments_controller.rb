@@ -56,8 +56,20 @@ class EnrollmentsController < ApplicationController
     @enrollment.save
   end
 
+  def drop(Course c)
+    @enrollment = Enrollment.where("course = ?",c)
+    if @enrollment[:grade].to_s == ''
+      @enrollment[:status] = 'no'
+    end
+  end
+
   def accept(Enrollment e)
     e[:status] = 'yes'
+  end
+
+  def student_history(User u)
+    @enrollments = Enrollment.where("user = ?",u)
+    
   end
 
   private
