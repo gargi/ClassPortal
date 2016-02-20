@@ -32,6 +32,8 @@
   resources :courses
   resources :students
   resources :instructors
+  resources :enrollments
+  resources :materials
   root 'home#index'
 
   # Example of regular route:

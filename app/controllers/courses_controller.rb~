@@ -67,6 +67,11 @@ class CoursesController < ApplicationController
     redirect_to 'courses#search_results' 
   end
 
+  def instructor_history u
+    @courses = Courses.where("user_id = ?",u.id)
+    redirect_to courses_path
+  end
+
   private
   def course_params
     params.require(:course).permit(:course_number,:title,:description,:start_date,:end_date,:status,:instructor)

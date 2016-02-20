@@ -56,8 +56,8 @@ class EnrollmentsController < ApplicationController
     @enrollment.save
   end
 
-  def drop(Course c)
-    @enrollment = Enrollment.where("course = ?",c)
+  def drop c
+    @enrollment = Enrollment.where("course_id = ?",c.id)
     if @enrollment[:grade].to_s == ''
       @enrollment[:status] = 'no'
     end
@@ -67,9 +67,9 @@ class EnrollmentsController < ApplicationController
     e[:status] = 'yes'
   end
 
-  def student_history(User u)
-    @enrollments = Enrollment.where("user = ?",u)
-    
+  def student_history u
+    @enrollments = Enrollment.where("user_id = ?",u.id)
+    redirect_to enrollments_path
   end
 
   private

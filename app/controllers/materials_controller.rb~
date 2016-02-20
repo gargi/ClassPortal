@@ -1,6 +1,6 @@
 class MaterialsController < ApplicationController
-  def index(Course c)
-    @materials = Material.where("course = ?",c)
+  def index c
+    @materials = Material.where(:course_id => c.id).first
   end
 
   def new
@@ -11,9 +11,9 @@ class MaterialsController < ApplicationController
     @material = Material.find(params[:id])
   end
 
-  def create(Course c)
+  def create c
     @material = Material.new(material_params)
-    @material[:course] = c
+    @material[:course_id] = c.id
     if @material.save
       redirect_to @material
     else
@@ -21,8 +21,8 @@ class MaterialsController < ApplicationController
     end
   end
 
-  def destroy(Course c)
-    @material = User.find(params[:id])
+  def destroy c
+    @material = Material.find(params[:id])
 
     @material.destroy
 

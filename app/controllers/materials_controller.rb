@@ -1,6 +1,6 @@
 class MaterialsController < ApplicationController
   def index c
-    @materials = Material.where(:course_id => c.id).first
+    @materials = Material.where(:course_id => c.id)
   end
 
   def new
