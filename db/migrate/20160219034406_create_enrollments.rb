@@ -5,6 +5,8 @@ class CreateEnrollments < ActiveRecord::Migration
       t.string :course_id
       t.string :status
       t.string :user_id
+      #status requested, enrolled, past
+      t.string :status
       t.timestamps null: false
     end
   end

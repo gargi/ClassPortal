@@ -28,8 +28,13 @@ ActiveRecord::Schema.define(version: 20160219061010) do
   create_table "enrollments", force: :cascade do |t|
     t.string   "grade",      limit: 255
     t.string   "course_id",  limit: 255
+<<<<<<< HEAD
     t.string   "status",     limit: 255
     t.string   "user_id",    limit: 255
+=======
+    t.string   "user_id",    limit: 255
+    t.string   "status",     limit: 255
+>>>>>>> ptrived
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
