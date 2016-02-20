@@ -7,9 +7,10 @@ class CreateCourses < ActiveRecord::Migration
       t.date :start_date
       t.date :end_date
       t.string :status
+      t.string :instructor_email
 
       t.timestamps
+
     end
-    add_index :courses, :course_number, :unique => true
   end
 end
