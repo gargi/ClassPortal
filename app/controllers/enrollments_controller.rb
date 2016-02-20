@@ -48,7 +48,7 @@ class EnrollmentsController < ApplicationController
 
   #Student requests enrollment
 
-  def request c
+  def request_enroll c
     @enrollment = Enrollment.new
     @enrollment[:user_id] = User.find_by(email: session[:email]).id
     @enrollment[:course_id] = c.id
@@ -75,7 +75,7 @@ class EnrollmentsController < ApplicationController
   private
 
   def enrollment_params
-    params.require(:enrollment).permit(:user,:course,:grade)
+    params.require(:enrollment).permit(:user_id,:course_id)
   end
 
   def enrollment_params_update

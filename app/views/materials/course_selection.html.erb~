@@ -1,0 +1,24 @@
+<h1>View Announcements</h1>
+
+<table>
+  <tr>
+    <th>Course Number</th>
+    <th>Title</th>
+    <th>Instructor</th>
+    <th>Status</th>
+    <th colspan="3"></th>
+  </tr>
+ 
+  <% @courses.each do |course| %>
+    <tr>
+      <td><%= course.course_number %></td>
+      <td><%= course.title %></td>
+      <td><%= course.user_id %></td>
+      <td><%= course.status %></td>
+  <td><%= link_to_if((course.status == "active"), 'View Announcements',{:controller => "materials", :action => "index", :c => course.id }) %></td>
+      
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Back', controller: 'users', action: 'show' %>

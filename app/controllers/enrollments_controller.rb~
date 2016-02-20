@@ -48,9 +48,9 @@ class EnrollmentsController < ApplicationController
 
   #Student requests enrollment
 
-  def request c
+  def request_enroll c
     @enrollment = Enrollment.new
-    @enrollment[:user_id] = User.find_by(email: session[:email])
+    @enrollment[:user_id] = User.find_by(email: session[:email]).id
     @enrollment[:course_id] = c.id
     @enrollment[:status] = 'no'
     @enrollment.save

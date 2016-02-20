@@ -4,6 +4,12 @@
 
 
     <p>
+      <%= f.label :course %><br>
+      <%= f.select :course_id, options_from_collection_for_select(Course.all, :id, :title, 1) %>
+    </p>
+
+
+    <p>
       <%= f.label :content %><br>
       <%= f.text_area :content %>
     </p>

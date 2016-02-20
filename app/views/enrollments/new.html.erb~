@@ -4,13 +4,13 @@
 
 
     <p>
-      <%= f.label :student %><br>
-      <%= f.text_field :student %>
+      <%= f.label :user %><br>
+      <%= f.select :user_id, options_from_collection_for_select(User.where("type = ?","student"), :id, :name, 4) %>
     </p>
 
     <p>
       <%= f.label :course %><br>
-      <%= f.text_field :course %>
+      <%= f.select :course_id, options_from_collection_for_select(Course.all, :id, :name, 1) %>
     </p>
 
     <p>

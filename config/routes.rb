@@ -34,7 +34,10 @@
   resources :students
   resources :instructors
   resources :enrollments
-  resources :materials
+  resources :materials do collection do
+    get 'course_selection'
+  end
+  end
   root 'home#index'
 
   # Example of regular route:
