@@ -3,6 +3,4 @@ class Enrollment < ActiveRecord::Base
     belongs_to :course
 
 validates :grade, :presence=>true
-
-enum status: [:yes, :no]
 end

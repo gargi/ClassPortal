@@ -22,7 +22,7 @@
       <td><%= course.user_id %></td>
       <td><%= course.status %></td>
       <td><%= link_to_if((course.status == "active"), 'View', course_path(course)) %></td>
-      <td><%= link_to 'Register', controller: 'enrollments' ,action: 'request',c: course.id  %></td>
+      <td><%= link_to 'Register', controller: 'enrollments' ,action: 'request',student_id: current_user.id,course_id: course.id  %></td>
     </tr>
   <% end %>
 </table>
