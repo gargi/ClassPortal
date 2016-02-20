@@ -48,10 +48,10 @@ class EnrollmentsController < ApplicationController
 
   #Student requests enrollment
 
-  def request(Course c)
+  def request c
     @enrollment = Enrollment.new
-    @enrollment[:user] = User.find_by(email: session[:email])
-    @enrollment[:course] = c
+    @enrollment[:user_id] = User.find_by(email: session[:email]).id
+    @enrollment[:course_id] = c.id
     @enrollment[:status] = 'no'
     @enrollment.save
   end
@@ -63,7 +63,7 @@ class EnrollmentsController < ApplicationController
     end
   end
 
-  def accept(Enrollment e)
+  def accept e
     e[:status] = 'yes'
   end
 
