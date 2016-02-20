@@ -42,6 +42,31 @@ class CoursesController < ApplicationController
     redirect_to courses_path
   end
 
+  def search
+    @parameters = Course.new(course_params)
+    @courses = Course.all
+    if @parameters[:course_number].to_s != ''
+       @courses = @courses.where("course_number = ?",@parameters[:course_number])
+    end
+    if @parameters[:title].to_s != ''
+       @courses = @courses.where("title = ?",@parameters[:title])
+    end
+    if @parameters[:description].to_s != ''
+       @courses = @courses.where("description = ?",@parameters[:description])
+    end
+    if @parameters[:start_date].to_s != ''
+       @courses = @courses.where("start_date = ?",@parameters[:start_date])
+    end
+    if @parameters[:end_date].to_s != ''
+       @courses = @courses.where("end_date = ?",@parameters[:end_date])
+    end
+    if @parameters[:status].to_s != ''
+       @courses = @courses.where("status = ?",@parameters[:status])
+    end
+
+    redirect_to 'courses#search_results' 
+  end
+
   private
   def course_params
     params.require(:course).permit(:course_number,:title,:description,:start_date,:end_date,:status,:instructor)
@@ -50,4 +75,5 @@ class CoursesController < ApplicationController
   def course_params_update
     params.require(:course).permit(:title,:description,:start_date,:end_date,:status,:instructor)
   end
+
 end

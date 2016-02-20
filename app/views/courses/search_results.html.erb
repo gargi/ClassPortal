@@ -1,0 +1,22 @@
+<h1>Listing courses after search</h1>
+
+<table>
+  <tr>
+    <th>Course Number</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+    <th>Instructor</th>
+    <th>Status</th>
+    <th colspan="2"></th>
+  </tr>
+ 
+  <% @courses.each do |course| %>
+    <tr>
+      <td><%= course.email %></td>
+      <td><%= course.name %></td>
+      <td><%= link_to 'View', course_path(course) %></td>
+    </tr>
+  <% end %>
+</table>
