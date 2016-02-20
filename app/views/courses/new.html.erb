@@ -45,13 +45,13 @@
   
   <p>
      <%= f.label :status %><br>
-     <%= f.select :status, options_for_select([['active','active'], ['inactive','inactive']]) %>
+     <%= f.select :status, options_for_select([['Active','active'], ['Inactive','inactive']]) %>
 
   </p>
 
   <p>
-    <%= f.label :instructor %><br>
-    <%= f.hidden_field :instructor_id %>
+    <%= f.label :instructor_email %><br>
+    <%= f.text_field :instructor_email %>
   </p>
 
 

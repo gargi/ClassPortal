@@ -24,6 +24,7 @@
   delete 'logout'  => 'sessions#destroy'
   get 'logout'  => 'sessions#destroy'
 
+  get 'enrollments/index' => 'enrollments#index'
 
   get 'admins/index' => 'admins#index '
   get 'admins/show' => 'admins#show'

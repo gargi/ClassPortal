@@ -5,20 +5,19 @@
   <tr>
     <th>Course Number</th>
     <th>Title</th>
-    <th>Description</th>
-    <th>Start Date</th>
-    <th>End Date</th>
     <th>Instructor</th>
     <th>Status</th>
-    <th colspan="2"></th>
+    <th colspan="3"></th>
   </tr>
  
   <% @courses.each do |course| %>
     <tr>
-      <td><%= course.email %></td>
-      <td><%= course.name %></td>
-      <td><%= link_to 'View', course_path(course) %></td>
-      <td><%= link_to 'Edit', edit_course_path(course) %></td>
+      <td><%= course.course_number %></td>
+      <td><%= course.title %></td>
+      <td><%= course.instructor_email %></td>
+      <td><%= course.status %></td>
+      <td><%= link_to_if((course.status == "active"), 'View', course_path(course)) %></td>
+      <td><%= link_to_if((course.status == "active"), 'Edit', edit_course_path(course)) %></td>
       <td><%= link_to 'Delete', course_path(course),
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>

@@ -10,8 +10,6 @@ class Course < ActiveRecord::Base
   validates :start_date, :presence=>true
   validates :end_date, :presence=>true
   validates :status, :presence=>true
-  validates :instructor, :presence=>true
-
-  enum status: [:active, :inactive]
+  validates :instructor_email, :presence=>true
 
 end
