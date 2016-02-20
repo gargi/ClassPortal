@@ -43,8 +43,8 @@
   </p>
  
   <p>
-    <%= f.label :Instructor_email %><br>
-    <%= f.email_field :instructor_email %>
+    <%= f.label :user_id %><br>
+    <%= f.select :user_id, options_from_collection_for_select(User.where("type = ?","instructor"), :id, :name, 2) %>
   </p>
  
   <p>

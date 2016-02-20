@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_secure_password
   self.inheritance_column = nil
   has_many :enrollments
-  has_many :courses
+  has_many :courses, :through => :enrollments
 
   def get_all_courses
     current_user.courses

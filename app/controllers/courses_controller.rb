@@ -80,11 +80,11 @@ class CoursesController < ApplicationController
 
   private
   def course_params
-    params.require(:course).permit(:course_number,:title,:description,:start_date,:end_date,:status,:instructor_email)
+    params.require(:course).permit(:course_number,:title,:description,:start_date,:end_date,:status,:user_id)
   end
 
   def course_params_update
-    params.require(:course).permit(:title,:description,:start_date,:end_date,:status,:instructor_email)
+    params.require(:course).permit(:title,:description,:start_date,:end_date,:status,:user_id)
   end
 
 end

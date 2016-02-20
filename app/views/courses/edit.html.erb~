@@ -1,0 +1,61 @@
+<h1>Editing course</h1>
+ 
+<%= form_for @course, url: { action: "update" }, method: :patch do |f| %>
+ 
+<% if @course.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@course.errors.count, "error") %> prohibited
+        this course from being saved:
+      </h2>
+      <ul>
+        <% @course.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  
+  <p>
+    <%= f.label :course_number %><br>
+    <%= f.text_field :course_number %>
+  </p>
+ 
+  <p>
+    <%= f.label :Title %><br>
+    <%= f.text_field :title %>
+  </p>
+ 
+  <p>
+    <%= f.label :Description %><br>
+    <%= f.text_area :description %>
+  </p>
+ 
+  <p>
+    <%= f.label :start_date %><br>
+    <%= f.date_field :start_date %>
+  </p>
+ 
+  <p>
+    <%= f.label :end_date %><br>
+    <%= f.date_field :end_date %>
+  </p>
+ 
+  <p>
+    <%= f.label :user_id %><br>
+    <%= f.select :user_id, options_from_collection_for_select(User.where("type = ?","instructor"), :id, :name, 1) %>
+  </p>
+ 
+  <p>
+     <%= f.label :Status %><br>
+     <%= f.select :status, [['Active', 'active'],['Inactive','inactive']]%>
+
+  </p>
+
+  <p>
+    <%= f.submit(:url => {:controller => 'courses', :action => 'show'}) %>
+  </p>
+<% end %>
+<%= link_to 'Back', courses_path %>
+
