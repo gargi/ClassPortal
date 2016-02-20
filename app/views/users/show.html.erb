@@ -18,24 +18,15 @@
       |
       <%= link_to 'Course Material Functionalities', controller: 'materials', action: 'course_selection'%>
   <% elsif current_user.type == 'instructor'%>
-    <%= link_to 'Accept Enrollment', controller: 'courses', action: 'search'%>
-      |
-      <%= link_to 'Add material to course', controller: 'courses', action: 'search'%>
-      |
-      <%= link_to 'Update Enrollment', controller: 'courses', action: 'search'%>
-      |
-      <%= link_to 'Accept Enrollment', controller: 'courses', action: 'search'%>
-      |
-      <%= link_to 'View courses', controller: 'courses', action: 'search'%>
-
+    <%= link_to 'Instructor Functionalities', controller: 'instructors', action: 'index'%>
   <% else %>
       <p>If you want to register for a course click on Search courses and search for courses you want to register.
       to View the information regarding the registerd courses, click on the View courses. </p>
       <%= link_to 'Search Courses', controller: 'courses', action: 'search'%>
       |
-      <%= link_to 'View My Courses', controller: 'courses', action: 'student_courses'%>
+      <%= link_to 'View Course', controller: 'courses', action: 'search'%>
       |
-      <%= link_to 'View Past', controller: 'enrollments', action: 'show', id: current_user.id%>
+      <%= link_to 'View History', controller: 'courses', action: 'search'%>
 
 
   <% end %>

@@ -48,23 +48,19 @@ class EnrollmentsController < ApplicationController
 
   #Student requests enrollment
 
-<<<<<<< HEAD
   def request_enroll c
-=======
-  def request
->>>>>>> ptrived
     @enrollment = Enrollment.new
-    @enrollment[:grade] = 'NA'
-    @enrollment[:user_id] = params[:student_id]
-    @enrollment[:course_id] = params[:course_id]
-    @enrollment[:status] = 'requested'
+    @enrollment[:user_id] = User.find_by(email: session[:email]).id
+    @enrollment[:course_id] = c.id
+    @enrollment[:status] = 'no'
     @enrollment.save
   end
 
-  def drop
-    @enrollment = Enrollment.where("course_id = ? and user_id = ?",params[:course_id], params[:student_id])
-    @enrollment.destroy
-    redirect_to courses/student_courses_path
+  def drop c
+    @enrollment = Enrollment.where("course_id = ?",c.id)
+    if @enrollment[:grade].to_s == ''
+      @enrollment[:status] = 'no'
+    end
   end
 
   def accept e

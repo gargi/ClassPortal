@@ -3,21 +3,14 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if params[:session][:email] == "" || params[:session][:password] == ""
-      flash.now[:danger] = 'Invalid email/password combination'
-      redirect_to login_path
+    @user = User.find_by(email: params[:session][:email].downcase)
+    if @user && @user.authenticate(params[:session][:password])
+      log_in @user
+      redirect_to users_show_path,notice: 'User logged in!'
     else
-      @user = User.find_by(email: params[:session][:email].downcase)
-      if @user && @user.authenticate(params[:session][:password])
-        log_in @user
-        redirect_to users_show_path,notice: 'User logged in!'
-      else
-        flash.now[:danger] = 'Invalid email/password combination'
-        render login_path
-      end
+      flash.now[:danger] = 'Invalid email/password combination'
+      render new
     end
-
-
   end
 
   def destroy

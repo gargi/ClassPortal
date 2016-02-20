@@ -14,15 +14,9 @@
  
   <% @courses.each do |course| %>
     <tr>
-      <td><%= course.course_number %></td>
-      <td><%= course.title %></td>
-      <td><%= course.description %></td>
-      <td><%= course.start_date %></td>
-      <td><%= course.end_date %></td>
-      <td><%= course.user_id %></td>
-      <td><%= course.status %></td>
-      <td><%= link_to_if((course.status == "active"), 'View', course_path(course)) %></td>
-      <td><%= link_to 'Register', controller: 'enrollments' ,action: 'request',student_id: current_user.id,course_id: course.id  %></td>
+      <td><%= course.email %></td>
+      <td><%= course.name %></td>
+      <td><%= link_to 'View', course_path(course) %></td>
     </tr>
   <% end %>
 </table>
