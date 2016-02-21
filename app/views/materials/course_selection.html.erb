@@ -13,7 +13,7 @@
     <tr>
       <td><%= course.course_number %></td>
       <td><%= course.title %></td>
-      <td><%= course.user_id %></td>
+      <td><%= course.user.email %></td>
       <td><%= course.status %></td>
 <td><%= link_to_if((course.status == "active"), 'View Announcements',{:controller => "materials", :action => "index", :c => course.id }) %></td>
       

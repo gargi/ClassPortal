@@ -45,6 +45,7 @@
     get 'request_enroll'
     get 'list_enrolled'
     get 'drop'
+    get 'accept'
   end
   end
   resources :materials do collection do

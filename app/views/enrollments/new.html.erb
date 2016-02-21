@@ -24,7 +24,7 @@
 
     <p>
       <%= f.label :course_id %><br>
-      <%= f.select :course_id, options_from_collection_for_select(Course.all, :id, :title, 1) %>
+      <%= f.select :course_id, options_from_collection_for_select(Course.where("status = ?","active"), :id, :title, 1) %>
     </p>
 
     <p>

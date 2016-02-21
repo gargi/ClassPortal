@@ -15,7 +15,7 @@
       <td><%= course.title %></td>
       <td><%= course.user_id %></td>
       <td><%= course.status %></td>
-  <td><%= link_to_if((course.status == "active"), 'View Announcements',{:controller => "materials", :action => "index", :c => course.id }) %></td>
+<td><%= link_to_if((course.status == "active"), 'View Announcements',{:controller => "materials", :action => "index", :c => course.id }) %></td>
       
     </tr>
   <% end %>

@@ -1,12 +1,13 @@
 <h1>Listing enrollments</h1>
-
-<%= link_to 'New Enrollment', new_enrollment_path %> 
+<% if current_user.type == 'admin' || current_user.type == 'superadmin'%>
+<%= link_to 'New Enrollment', new_enrollment_path %>
+<% end %> 
 <table>
   <tr>
     <th>Student</th>
     <th>Course</th>
-    <th>Grade</th>
     <th>Status</th>
+    <th>Grade</th>
     <th colspan="2"></th>
   </tr>
  
@@ -16,9 +17,14 @@
       <td><%= enrollment.course.title %></td>
       <td><%= enrollment.status %></td>
       <td><%= enrollment.grade %></td>
+      <td>
+        <% if enrollment.status == 'requested' %>
+		<%= link_to 'Accept', {:controller => enrollments, :action => accept, :aid => enrollment.id} %>
+        <% end %>
+      </td>
       <td><%= link_to 'View', enrollment_path(enrollment) %></td>
-      <td><%= link_to 'Edit', edit_enrollment_path(enrollment) %></td>
-      <td><%= link_to 'Delete', enrollment_path(enrollment),
+      <td><%= link_to 'Post Grade', edit_enrollment_path(enrollment) %></td>
+      <td><%= link_to 'Remove', enrollment_path(enrollment),
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
     </tr>

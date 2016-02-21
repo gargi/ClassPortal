@@ -23,6 +23,10 @@
     <%= link_to 'Course Material Functionalities', controller: 'materials', action: 'course_selection'%>
     |
     <%= link_to 'View History', {:controller => 'courses', :action => 'instructor_history'} %>
+    |
+      <%= link_to 'Enrollment Functionalities', controller: 'enrollments', action: 'index'%>
+      
+    
   <% else %>
       <p>If you want to register for a course click on Search courses and search for courses you want to register.
       to View the information regarding the registerd courses, click on the View courses. </p>

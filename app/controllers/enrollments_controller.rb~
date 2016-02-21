@@ -4,7 +4,11 @@ class EnrollmentsController < ApplicationController
 # Instructor removing student from course directly
 
   def index
-    @enrollments = Enrollment.all
+    if current_user[:type] == 'instructor'
+    	@enrollments = Enrollment.joins(:course).where("enrollments.course_id = courses.id").where("courses.user_id = ?",current_user[:id]).where("courses.status = ?","active")
+    else
+    	@enrollments = Enrollment.all
+    end
   end
 
   def show
@@ -73,11 +77,13 @@ class EnrollmentsController < ApplicationController
   def drop 
     @enrollment = Enrollment.find(params[:ed])
     @enrollment.update(status: "past")
-    redirect_to list_enrolled
+    redirect_to url_for(:controller => :users, :action => :show)
   end
 
-  def accept e
-    e[:status] = 'enrolled'
+  def accept 
+    @enrollment = Enrollment.find(params[:aid])
+    @enrollment.update(status: "enrolled")
+    redirect_to url_for(:controller => :enrollments, :action => :index)
   end
 
   def student_history 
