@@ -1,28 +1,22 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+						Class Portal Application
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+				SUPER ADMIN - super@gmail.com		PASSWORD - super
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Features of the class portal application:
+
+Administrator
+
+1. Admin Functionalities - Add, Remove and Edit admin details
+			   Cannot delete self or super admin
+                           
+2. Instructor Functionalities - Add, Remove and Edit instructor details
+
+3. Student Functionalities - Add, Remove and Edit student details
+
+4. Course Functionalities - Add, Remove and Edit course details
+
+5. 
+
