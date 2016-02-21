@@ -61,16 +61,19 @@ class EnrollmentsController < ApplicationController
     	@enrollment[:status] = 'requested'
         @enrollment[:grade] = '-'
     	@enrollment.save
-        redirect_to @enrollment
+        
     end    
     redirect_to url_for(:controller => :courses, :action => :search) 
   end
 
+  def list_enrolled
+    @enrollments = Enrollment.where("user_id = ?",current_user[:id]).where("status = ?","enrolled").where("grade = ?","-")
+  end
+
   def drop 
-    @enrollment = Enrollment.where("course_id = ?",params[:c])
-    if @enrollment[:grade].to_s == '-'
-      @enrollment[:status] = 'past'
-    end
+    @enrollment = Enrollment.find(params[:ed])
+    @enrollment.update(status: "past")
+    redirect_to list_enrolled
   end
 
   def accept e

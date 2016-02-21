@@ -1,0 +1,22 @@
+<h1>Enrolled courses</h1>
+
+<table>
+  <tr>
+    <th>Student</th>
+    <th>Course</th>
+    <th>Status</th>
+    <th>Grade</th>
+    <th colspan="2"></th>
+  </tr>
+ 
+  <% @enrollments.each do |enrollment| %>
+    <tr>
+      <td><%= enrollment.user.email %></td>
+      <td><%= enrollment.course.title %></td>
+      <td><%= enrollment.status %></td>
+      <td><%= enrollment.grade %></td>
+      <td><%= link_to 'Drop', {:controller => 'enrollments', :action => 'drop', :ed => enrollment.id} %></td>
+         </tr>
+  <% end %>
+</table>
+

@@ -43,6 +43,8 @@
   resources :enrollments do collection do
     get 'student_history'
     get 'request_enroll'
+    get 'list_enrolled'
+    get 'drop'
   end
   end
   resources :materials do collection do
