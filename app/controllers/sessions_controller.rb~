@@ -8,7 +8,6 @@ class SessionsController < ApplicationController
       log_in @user
       redirect_to users_show_path,notice: 'User logged in!'
     else
-      flash.now[:danger] = 'Invalid email/password combination'
       redirect_to home_index_path
     end
   end
