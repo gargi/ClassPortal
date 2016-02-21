@@ -18,24 +18,14 @@
   get 'users/index'
   get 'users/edit' => 'users#edit'
   get 'users/show'
-
   get 'signup' => 'users#new'
-  get 'login'   => 'sessions#new'
-  post 'login'   => 'sessions#create'
+  get    'login'   => 'sessions#new'
+  post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
   get 'logout'  => 'sessions#destroy'
 
-  get 'materials/show' => 'materials#show'
-  get 'materials/new' => 'materials#new'
-  get 'materials/student_course_material' => 'materials#student_course_material'
   get 'enrollments/index' => 'enrollments#index'
-  get 'enrollments/drop' => 'enrollments#drop'
-  get 'enrollments/show'
-  get 'courses/student_courses' => 'courses#student_courses'
-  get 'enrollments/request' => 'enrollments#request'
-  get 'courses/search'
-  post 'courses/search' => 'courses#search_results'
-  get 'courses/search_course'
+
   get 'admins/index' => 'admins#index '
   get 'admins/show' => 'admins#show'
   resources :users
