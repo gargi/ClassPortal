@@ -21,8 +21,9 @@ class EnrollmentsController < ApplicationController
 
   def create
     @enrollment = Enrollment.new(enrollment_params)
+    @enrollment[:grade] = '-'
     @enrollment[:status] = 'yes'
-    if @enrollement.save
+    if @enrollment.save
       redirect_to @enrollment
     else
       render 'new'
@@ -50,7 +51,7 @@ class EnrollmentsController < ApplicationController
 
   def request_enroll c
     @enrollment = Enrollment.new
-    @enrollment[:user_id] = User.find_by(email: session[:email]).id
+    @enrollment[:user_id] = current_user[:id]
     @enrollment[:course_id] = c.id
     @enrollment[:status] = 'no'
     @enrollment.save
@@ -58,7 +59,7 @@ class EnrollmentsController < ApplicationController
 
   def drop c
     @enrollment = Enrollment.where("course_id = ?",c.id)
-    if @enrollment[:grade].to_s == ''
+    if @enrollment[:grade].to_s == '-'
       @enrollment[:status] = 'no'
     end
   end

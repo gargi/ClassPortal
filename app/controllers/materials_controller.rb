@@ -21,8 +21,16 @@ class MaterialsController < ApplicationController
   end
 
   def course_selection
-    @courses = Course.all
+    if current_user[:type].to_s == "instructor"
+      @courses = Course.where("user_id = ?",current_user[:id])
+    else if current_user[:type].to_s == "student"
+      @courses = Course.joins(:enrollments).where("courses.id = enrollments.course_id").where("enrollments.user_id = ?",current_user[:id])
+    else
+      @courses = Course.all
+    end
+   end
   end
+
 
   private
 

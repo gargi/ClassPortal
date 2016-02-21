@@ -30,12 +30,14 @@
   get 'admins/show' => 'admins#show'
   resources :users
   resources :admins
-  resources :courses
+  resources :courses do
+   resources :enrollments
+  end
   resources :students
   resources :instructors
-  resources :enrollments
-  resources :materials do
+  resources :materials do collection do
     get 'course_selection'
+  end
   end
   root 'home#index'
 

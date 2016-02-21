@@ -1,6 +1,4 @@
 <h1>Listing Announcements</h1>
-
-<%= link_to 'New Announcement', controller: 'materials', action: 'new'%> 
 <table>
   
   <% @materials.each do |material| %>
@@ -9,4 +7,9 @@
       </tr>
   <% end %>
 </table>
+
+<% if current_user.type == 'admin' || current_user.type == 'superadmin' || current_user.type == 'instructor'%>	
+	<%= link_to 'New Announcement', controller: 'materials', action: 'new'%> 
+<% end %>
+
 

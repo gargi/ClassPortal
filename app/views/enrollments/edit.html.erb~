@@ -17,15 +17,11 @@
     <% end %>
 
     <p>
-      <%= f.label :student %><br>
-      <%= f.select :user_id, options_from_collection_for_select(User.where("type = ?","student"), :id, :name, 4)
+      <%= f.label :grade %><br>
+      <% f.text_field :grade %>
     </p>
 
-    <p>
-      <%= f.label :course %><br>
-      <%= f.select :user_id, options_from_collection_for_select(Course.all, :id, :name, 1)
-    </p>
-
+    
     <p>
       <%= f.submit %>
     </p>

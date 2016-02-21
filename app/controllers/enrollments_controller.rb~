@@ -21,8 +21,9 @@ class EnrollmentsController < ApplicationController
 
   def create
     @enrollment = Enrollment.new(enrollment_params)
+    @enrollment[:grade] = '-'
     @enrollment[:status] = 'yes'
-    if @enrollement.save
+    if @enrollment.save
       redirect_to @enrollment
     else
       render 'new'
@@ -58,7 +59,7 @@ class EnrollmentsController < ApplicationController
 
   def drop c
     @enrollment = Enrollment.where("course_id = ?",c.id)
-    if @enrollment[:grade].to_s == ''
+    if @enrollment[:grade].to_s == '-'
       @enrollment[:status] = 'no'
     end
   end
@@ -75,7 +76,7 @@ class EnrollmentsController < ApplicationController
   private
 
   def enrollment_params
-    params.require(:enrollment).permit(:user,:course,:grade)
+    params.require(:enrollment).permit(:user_id,:course_id)
   end
 
   def enrollment_params_update
