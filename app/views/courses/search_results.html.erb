@@ -5,8 +5,6 @@
     <th>Course Number</th>
     <th>Title</th>
     <th>Description</th>
-    <th>Start Date</th>
-    <th>End Date</th>
     <th>Instructor</th>
     <th>Status</th>
     <th colspan="2"></th>
@@ -14,9 +12,13 @@
  
   <% @courses.each do |course| %>
     <tr>
-      <td><%= course.email %></td>
-      <td><%= course.name %></td>
+      <td><%= course.course_number%></td>
+      <td><%= course.title%></td>
+      <td><%= course.description%></td>
+      <td><%= course.user_id %></td>
+      <td><%= course.status%></td>
       <td><%= link_to 'View', course_path(course) %></td>
+      <td><%= link_to 'Register', controller: 'enrollments', action: 'request_enroll',course_id:  course.id%></td>
     </tr>
   <% end %>
 </table>

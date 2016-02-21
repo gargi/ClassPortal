@@ -49,6 +49,9 @@ class EnrollmentsController < ApplicationController
 
   #Student requests enrollment
 
+  def view_courses
+  end
+
   def request_enroll 
     @enrollment = Enrollment.new
     @enrollment[:user_id] = current_user[:id]

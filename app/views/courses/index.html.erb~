@@ -1,6 +1,7 @@
 <h1>Listing courses</h1>
-
-<%= link_to 'New course', controller: 'courses', action: 'new'%> 
+<% if current_user.type =='admin' || current_user.type == 'superadmin' %>
+    <%= link_to 'New course', controller: 'courses', action: 'new'%>
+<% end %>
 <table>
   <tr>
     <th>Course Number</th>
@@ -14,13 +15,19 @@
     <tr>
       <td><%= course.course_number %></td>
       <td><%= course.title %></td>
-      <td><%= course.user.name %></td>
+<<<<<<< HEAD
+      <td><%= course.user.email %></td>
+=======
+      <td><%= User.find(course.user_id).email %></td>
+>>>>>>> 2a316b4579f4cfe64feb8f20d111ce01dbd97f63
       <td><%= course.status %></td>
       <td><%= link_to_if((course.status == "active"), 'View', course_path(course)) %></td>
-      <td><%= link_to_if((course.status == "active"), 'Edit', edit_course_path(course)) %></td>
-      <td><%= link_to 'Delete', course_path(course),
+      <% if current_user.type =='admin' || current_user.type == 'superadmin' %>
+          <td><%= link_to_if((course.status == "active"), 'Edit', edit_course_path(course)) %></td>
+          <td><%= link_to 'Delete', course_path(course),
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
     </tr>
   <% end %>
 </table>
