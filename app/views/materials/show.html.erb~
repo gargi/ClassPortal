@@ -1,14 +1,13 @@
-<h1> Show admin </h1>
+<h1> Show Announcement </h1>
 
 <p>
-  <strong>Email:</strong>
-  <%= @admin.email %>
+  <strong>Course:</strong>
+  <%= @material.course_id %>
 </p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @admin.name %>
+  <strong>Announcement:</strong>
+  <%= @material.content %>
 </p>
 
-<%= link_to 'Edit', edit_admin_path(@admin) %> |
-<%= link_to 'Back', admins_path %>
+<%= link_to 'Back', materials_path %>
