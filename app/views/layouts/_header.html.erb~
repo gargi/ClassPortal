@@ -19,7 +19,7 @@
                 Account <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                
+                <li><%= link_to "Edit Profile", controller: 'users', action: 'edit' %></li>
                 <li class="divider"></li>
                 <li>
                   <%= link_to "Log out", logout_path, method: "delete" %>
