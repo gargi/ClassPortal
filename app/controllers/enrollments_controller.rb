@@ -49,11 +49,11 @@ class EnrollmentsController < ApplicationController
 
   #Student requests enrollment
 
-  def request_enroll c
+  def request_enroll
     @enrollment = Enrollment.new
     @enrollment[:user_id] = current_user[:id]
-    @enrollment[:course_id] = c.id
-    @enrollment[:status] = 'no'
+    @enrollment[:course_id] = params[:course_id]
+    @enrollment[:status] = 'requested'
     @enrollment.save
   end
 

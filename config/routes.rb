@@ -25,6 +25,10 @@
   get 'logout'  => 'sessions#destroy'
 
   get 'enrollments/index' => 'enrollments#index'
+  get 'enrollments/request_enroll' => 'enrollments#request_enroll'
+
+  get 'courses/search' => 'courses#search'
+  post 'courses/search' => 'courses#search_results'
 
   get 'admins/index' => 'admins#index '
   get 'admins/show' => 'admins#show'
