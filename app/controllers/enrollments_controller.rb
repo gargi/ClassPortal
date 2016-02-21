@@ -5,9 +5,9 @@ class EnrollmentsController < ApplicationController
 
   def index
     if current_user[:type] == 'instructor'
-    	@enrollments = Enrollment.joins(:course).where("enrollments.course_id = courses.id").where("courses.user_id = ?",current_user[:id])
+    	@enrollments = Enrollment.joins(:course).where("enrollments.course_id = courses.id").where("courses.user_id = ?",current_user[:id]).where("courses.status = ?","active")
     else
-    	@enrollments = Enrollment.all
+    	@enrollments = Enrollment.joins(:course).where("courses.status = ?","active")
     end
   end
 

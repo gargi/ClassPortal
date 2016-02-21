@@ -32,6 +32,7 @@ class MaterialsController < ApplicationController
       @courses = Course.all
     end
    end
+   @courses = @courses.where("status = ?","active")
   end
 
 

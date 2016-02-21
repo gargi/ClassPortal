@@ -6,6 +6,7 @@ class MaterialsController < ApplicationController
 
   def new
     @material = Material.new
+    @val = params[:c].to_i
   end
 
   def create
