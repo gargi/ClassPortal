@@ -32,26 +32,19 @@
 
   get 'admins/index' => 'admins#index '
   get 'admins/show' => 'admins#show'
+  get 'courses/instructor_history' => 'courses#instructor_history'
+  get 'enrollments/student_history' => 'enrollments#student_history'
+  get 'enrollments/list_enrolled' => 'enrollments#list_enrolled'
+  get 'enrollments/drop' => 'enrollments#drop'
+  get 'enrollments/accept' => 'enrollments#accept'
+  get 'materials/course_selection' => 'materials#course_selection'
   resources :users
   resources :admins
-  resources :courses do collection do
-    get 'instructor_history'
-  end
-  end
+  resources :courses 
   resources :students
   resources :instructors
-  resources :enrollments do collection do
-    get 'student_history'
-    get 'request_enroll'
-    get 'list_enrolled'
-    get 'drop'
-    get 'accept'
-  end
-  end
-  resources :materials do collection do
-    get 'course_selection'
-  end
-  end
+  resources :enrollments 
+  resources :materials 
   root 'home#index'
 
   # Example of regular route:
