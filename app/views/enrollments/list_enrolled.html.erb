@@ -11,8 +11,8 @@
  
   <% @enrollments.each do |enrollment| %>
     <tr>
-      <td><%= enrollment.user.email %></td>
-      <td><%= enrollment.course.title %></td>
+      <td><%= User.find(enrollment.user_id).email %></td>
+      <td><%= Course.find(enrollment.course_id).title %></td>
       <td><%= enrollment.status %></td>
       <td><%= enrollment.grade %></td>
       <td><%= link_to 'Drop', {:controller => 'enrollments', :action => 'drop', :ed => enrollment.id} %></td>
