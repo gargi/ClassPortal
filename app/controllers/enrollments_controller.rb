@@ -22,7 +22,7 @@ class EnrollmentsController < ApplicationController
   def create
     @enrollment = Enrollment.new(enrollment_params)
     @enrollment[:grade] = '-'
-    @enrollment[:status] = 'yes'
+    @enrollment[:status] = 'enrolled'
     if @enrollment.save
       redirect_to @enrollment
     else
@@ -52,23 +52,29 @@ class EnrollmentsController < ApplicationController
   def view_courses
   end
 
-  def request_enroll 
-    @enrollment = Enrollment.new
-    @enrollment[:user_id] = current_user[:id]
-    @enrollment[:course_id] = params[:c].to_s
-    @enrollment[:status] = 'no'
-    @enrollment.save
+  def request_enroll
+    @enrollment = Enrollment.where("user_id = ?",current_user[:id]).where("course_id = ?",params[:course_id])
+    if @enrollment.blank?
+    	@enrollment = Enrollment.new
+    	@enrollment[:user_id] = current_user[:id]
+    	@enrollment[:course_id] = params[:course_id].to_s
+    	@enrollment[:status] = 'requested'
+        @enrollment[:grade] = '-'
+    	@enrollment.save
+        redirect_to @enrollment
+    end    
+    redirect_to url_for(:controller => :courses, :action => :search) 
   end
 
-  def drop c
-    @enrollment = Enrollment.where("course_id = ?",c.id)
+  def drop 
+    @enrollment = Enrollment.where("course_id = ?",params[:c])
     if @enrollment[:grade].to_s == '-'
-      @enrollment[:status] = 'no'
+      @enrollment[:status] = 'past'
     end
   end
 
   def accept e
-    e[:status] = 'yes'
+    e[:status] = 'enrolled'
   end
 
   def student_history 

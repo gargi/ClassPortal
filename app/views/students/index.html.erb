@@ -1,11 +1,14 @@
 <h1>Listing students</h1>
 
-<%= link_to 'New student', controller: 'students', action: 'new'%> 
+<% if current_user.type == 'admin' || current_user.type == 'superadmin'%>
+	<%= link_to 'New student', controller: 'students', action: 'new'%> 
+<% end %>
+
 <table>
   <tr>
     <th>Email</th>
     <th>Name</th>
-    <th colspan="5"></th>
+    <th colspan="4"></th>
   </tr>
  
   <% @users.each do |user| %>
@@ -14,10 +17,15 @@
       <td><%= user.name %></td>
       <td><%= link_to 'View', student_path(user) %></td>
       <td><%= link_to 'Edit', edit_student_path(user) %></td>
+	<% if current_user.type == 'admin' || current_user.type == 'superadmin'%>
+
       <td><%= link_to 'Delete', student_path(user),
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
       <td><%= link_to 'History', {:controller => 'enrollments', :action => 'student_history', :u => user.id} %></td>
     </tr>
   <% end %>
 </table>
+
+

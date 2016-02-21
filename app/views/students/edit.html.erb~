@@ -1,4 +1,4 @@
-<h1>Editing instructor</h1>
+<h1>Editing student</h1>
  
 <%= form_for @user, url: { action: "update" }, method: :patch do |f| %>
  
@@ -25,7 +25,7 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </p>
- 
+<% if current_user.type == 'student'%> 
   <p>
     <%= f.label :password %><br>
     <%= f.password_field :password %>
@@ -37,4 +37,4 @@
  
 <% end %>
  
-<%= link_to 'Back', instructors_path %>
+

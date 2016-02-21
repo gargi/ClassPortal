@@ -20,6 +20,7 @@
   <%= @enrollment.status %>
 </p>
 
-
-<%= link_to 'Edit', edit_enrollment_path(@enrollment) %> |
-<%= link_to 'Back', enrollments_path %>
+<% if current_user.type == 'admin' || current_user.type == 'superadmin'%>
+	<%= link_to 'Edit', edit_enrollment_path(@enrollment) %> |
+	<%= link_to 'Back', enrollments_path %>
+<% end %>

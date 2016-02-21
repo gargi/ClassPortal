@@ -42,6 +42,7 @@
   resources :instructors
   resources :enrollments do collection do
     get 'student_history'
+    get 'request_enroll'
   end
   end
   resources :materials do collection do

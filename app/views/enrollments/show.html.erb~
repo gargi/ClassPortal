@@ -2,12 +2,12 @@
 
 <p>
   <strong>Student:</strong>
-  <%= @enrollment.user %>
+  <%= @enrollment.user.email %>
 </p>
 
 <p>
   <strong>Course:</strong>
-  <%= @enrollment.course %>
+  <%= @enrollment.course.title %>
 </p>
 
 <p>

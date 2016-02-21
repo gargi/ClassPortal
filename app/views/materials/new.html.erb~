@@ -1,7 +1,6 @@
 <h1>New Announcement</h1>
 
-<%= form_for :material, url: materials_path do |f| %>
-
+<%= form_for :material, url: {:action => 'create', :c => @val do |f| %>
 
     <p>
       <%= f.label :content %><br>

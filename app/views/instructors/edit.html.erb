@@ -26,10 +26,12 @@
     <%= f.text_field :name %>
   </p>
  
+<% if current_user.type == 'instructor' %>
   <p>
     <%= f.label :password %><br>
     <%= f.password_field :password %>
   </p>
+<% end %>
  
   <p>
     <%= f.submit %>
@@ -37,4 +39,4 @@
  
 <% end %>
  
-<%= link_to 'Back', instructors_path %>
+

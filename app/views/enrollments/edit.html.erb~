@@ -18,7 +18,7 @@
 
     <p>
       <%= f.label :grade %><br>
-      <% f.text_field :grade %>
+      <%= f.text_field :grade %>
     </p>
 
     

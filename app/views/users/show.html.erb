@@ -26,12 +26,15 @@
   <% else %>
       <p>If you want to register for a course click on Search courses and search for courses you want to register.
       to View the information regarding the registerd courses, click on the View courses. </p>
-      <%= link_to 'Search Courses', controller: 'courses', action: 'index'%>
+      <%= link_to 'Edit Profile', controller: 'students', action: 'index'%>
       |
-      
+      <%= link_to 'View Courses', controller: 'courses', action: 'index'%>
+      |
+      <%= link_to 'Search Courses', controller: 'courses', action: 'search'%>
+      |
       <%= link_to 'View History', {:controller => 'enrollments', :action => 'student_history'} %>
       |
-      <%= link_to 'Course Material Functionalities', controller: 'materials', action: 'course_selection'%>
+      <%= link_to 'Course Material Functionalities', controller: 'materials', action: 'course_selection' %>
 
 
   <% end %>

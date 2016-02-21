@@ -1,6 +1,10 @@
 class StudentsController < ApplicationController
   def index
-    @users = User.where("type = ?","student")
+    if current_user[:type].to_s == "student"
+	@users = User.where("id = ?",current_user[:id])
+    else
+    	@users = User.where("type = ?","student")
+    end
   end
 
   def show

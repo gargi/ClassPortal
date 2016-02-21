@@ -1,6 +1,9 @@
 <h1>Listing instructors</h1>
 
-<%= link_to 'New instructor', controller: 'instructors', action: 'new'%> 
+<% if current_user.type == 'admin' || current_user.type == 'superadmin'%>
+	<%= link_to 'New instructor', controller: 'instructors', action: 'new'%> 
+<% end %>
+
 <table>
   <tr>
     <th>Email</th>
@@ -14,10 +17,15 @@
       <td><%= user.name %></td>
       <td><%= link_to 'View', instructor_path(user) %></td>
       <td><%= link_to 'Edit', edit_instructor_path(user) %></td>
+	<% if current_user.type == 'admin' || current_user.type == 'superadmin'%>
+
       <td><%= link_to 'Delete', instructor_path(user),
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
       <td><%= link_to 'History', {:controller => 'courses', :action => 'instructor_history', :u => user.id} %></td>
     </tr>
   <% end %>
 </table>
+
+

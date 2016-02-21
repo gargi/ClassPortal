@@ -1,14 +1,17 @@
 class MaterialsController < ApplicationController
   def index 
     @materials = Material.where("course_id = ?",params[:c].to_i)
+    @val = params[:c].to_i
   end
 
   def new
     @material = Material.new
+    @val = params[:c].to_i
   end
 
   def create
     @material = Material.new(material_params)
+    @material[:course_id] = params[:c].to_i 
     if @material.save
       redirect_to @material
     else

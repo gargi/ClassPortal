@@ -1,6 +1,7 @@
 class MaterialsController < ApplicationController
   def index 
     @materials = Material.where("course_id = ?",params[:c].to_i)
+    @val = params[:c].to_i
   end
 
   def new
@@ -9,6 +10,7 @@ class MaterialsController < ApplicationController
 
   def create
     @material = Material.new(material_params)
+    @material[:course_id] = params[:c].to_i 
     if @material.save
       redirect_to @material
     else
@@ -24,7 +26,7 @@ class MaterialsController < ApplicationController
     if current_user[:type].to_s == "instructor"
       @courses = Course.where("user_id = ?",current_user[:id])
     else if current_user[:type].to_s == "student"
-      @courses = Course.joins(:enrollments).where("courses.id = enrollments.course_id").where("enrollment.user_id = ?",current_user[:id])
+      @courses = Course.joins(:enrollments).where("courses.id = enrollments.course_id").where("enrollments.user_id = ?",current_user[:id])
     else
       @courses = Course.all
     end

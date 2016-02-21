@@ -49,28 +49,27 @@ class CoursesController < ApplicationController
   end
 
   def search
+   @course = Course.new
+  end
+
+  def search_results
     @parameters = Course.new(course_params)
     @courses = Course.all
-    if @parameters[:course_number].to_s != ''
-       @courses = @courses.where("course_number = ?",@parameters[:course_number])
+    if @parameters[:course_number].to_s != ''      
+       @courses = @courses.where("course_number = ?",@parameters[:course_number].to_s)
     end
     if @parameters[:title].to_s != ''
-       @courses = @courses.where("title = ?",@parameters[:title])
+       @courses = @courses.where("title = ?",@parameters[:title].to_s)
     end
     if @parameters[:description].to_s != ''
-       @courses = @courses.where("description = ?",@parameters[:description])
-    end
-    if @parameters[:start_date].to_s != ''
-       @courses = @courses.where("start_date = ?",@parameters[:start_date])
-    end
-    if @parameters[:end_date].to_s != ''
-       @courses = @courses.where("end_date = ?",@parameters[:end_date])
+       @courses = @courses.where("description = ?",@parameters[:description].to_s)
     end
     if @parameters[:status].to_s != ''
-       @courses = @courses.where("status = ?",@parameters[:status])
+       @courses = @courses.where("status = ?",@parameters[:status].to_s)
     end
-
-    redirect_to 'courses#search_results' 
+    if @parameters[:user_id].to_s != ''
+       @courses = @courses.where("user_id = ?",@parameters[:user_id].to_s)
+    end
   end
 
   def instructor_history 
