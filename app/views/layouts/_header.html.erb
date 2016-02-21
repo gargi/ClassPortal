@@ -1,6 +1,6 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
-    <%= link_to "Class Portal", home_index_path, id: "logo" %>
+    <%= link_to "NCSU Class Portal", home_index_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
@@ -10,7 +10,6 @@
         <% end %>
         <li><%= link_to "Help",  help_path %></li>
         <li><%= link_to "About",  about_path %></li>
-        <li><%= link_to "References",  references_path %></li>
         <li><%= link_to "Contact",  contact_path %></li>
         <li><%= link_to "References",  references_path %></li>
         <li><a href="https://www.ncsu.edu//">NCSU Website</a></li>
