@@ -49,10 +49,13 @@ class EnrollmentsController < ApplicationController
 
   #Student requests enrollment
 
-  def request_enroll c
+  def view_courses
+  end
+
+  def request_enroll 
     @enrollment = Enrollment.new
     @enrollment[:user_id] = current_user[:id]
-    @enrollment[:course_id] = c.id
+    @enrollment[:course_id] = params[:c].to_s
     @enrollment[:status] = 'no'
     @enrollment.save
   end
@@ -68,9 +71,12 @@ class EnrollmentsController < ApplicationController
     e[:status] = 'yes'
   end
 
-  def student_history u
-    @enrollments = Enrollment.where("user_id = ?",u.id)
-    redirect_to enrollments_path
+  def student_history 
+    if current_user[:type].to_s == "student"
+	@enrollments = Enrollment.where("user_id = ?",current_user[:id])
+    else
+    	@enrollments = Enrollment.where("user_id = ?",params[:u])
+    end
   end
 
   private

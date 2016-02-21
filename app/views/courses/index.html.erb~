@@ -14,7 +14,7 @@
     <tr>
       <td><%= course.course_number %></td>
       <td><%= course.title %></td>
-      <td><%= course.user.id %></td>
+      <td><%= course.user.name %></td>
       <td><%= course.status %></td>
       <td><%= link_to_if((course.status == "active"), 'View', course_path(course)) %></td>
       <td><%= link_to_if((course.status == "active"), 'Edit', edit_course_path(course)) %></td>

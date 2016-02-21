@@ -27,7 +27,7 @@
  
 <p>
   <strong>Instructor:</strong>
-  <%= @course.user.email %>
+  <%= @course.users.email %>
 </p>
 
 <p>

@@ -73,9 +73,12 @@ class CoursesController < ApplicationController
     redirect_to 'courses#search_results' 
   end
 
-  def instructor_history u
-    @courses = Courses.where("user_id = ?",u.id)
-    redirect_to courses_path
+  def instructor_history 
+    if current_user[:type].to_s == "instructor"
+	@courses = Course.where("user_id = ?",current_user[:id])
+    else
+    	@courses = Course.where("user_id = ?",params[:u])
+    end
   end
 
   private

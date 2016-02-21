@@ -17,6 +17,7 @@
       <td><%= link_to 'Delete', instructor_path(user),
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'History', {:controller => 'courses', :action => 'instructor_history', :u => user.id} %></td>
     </tr>
   <% end %>
 </table>

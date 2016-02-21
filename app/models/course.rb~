@@ -1,7 +1,7 @@
 class Course < ActiveRecord::Base
 
   has_many  :enrollments
-  has_many  :user
+  has_many  :users
   has_one   :material
 
   validates :course_number, :presence=>true

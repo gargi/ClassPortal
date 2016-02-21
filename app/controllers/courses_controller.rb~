@@ -73,18 +73,21 @@ class CoursesController < ApplicationController
     redirect_to 'courses#search_results' 
   end
 
-  def instructor_history u
-    @courses = Courses.where("user_id = ?",u.id)
-    redirect_to courses_path
+  def instructor_history 
+    if current_user[:type].to_s == "Instructor"
+	@courses = Course.where("user_id = ?",current_user[:id])
+    else
+    	@courses = Course.where("user_id = ?",params[:u])
+    end
   end
 
   private
   def course_params
-    params.require(:course).permit(:course_number,:title,:description,:start_date,:end_date,:status,:instructor_email)
+    params.require(:course).permit(:course_number,:title,:description,:start_date,:end_date,:status,:user_id)
   end
 
   def course_params_update
-    params.require(:course).permit(:title,:description,:start_date,:end_date,:status,:instructor_email)
+    params.require(:course).permit(:title,:description,:start_date,:end_date,:status,:user_id)
   end
 
 end
