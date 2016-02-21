@@ -1,2 +1,30 @@
 == README
 
+						Class Portal Application
+
+				SUPER ADMIN - super@gmail.com		PASSWORD - super
+				ADMIN - admin@gmail.com			PASSWORD - admin
+  				INSTRUCTOR - instructor@gmail.com	PASSWORD - instructor
+				STUDENT - student@gmail.com		PASSWORD - student
+
+Features of the class portal application:
+
+Administrator
+
+1. Admin Functionalities - Add, Remove and Edit admin details
+			   Cannot delete self or super admin
+                           
+2. Instructor Functionalities - Add, Remove and Edit instructor details
+
+3. Student Functionalities - Add, Remove and Edit student details
+
+4. Course Functionalities - Add, Remove and Edit course details
+
+5. Enrollment Functionalities - Accept enrollment requests
+				Enroll/Remove students
+                                Post Grades
+
+6. Course Material Functionalities - Add new material or announcements
+				     View Announcements
+                                
+

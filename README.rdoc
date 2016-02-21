@@ -3,7 +3,9 @@
 						Class Portal Application
 
 				SUPER ADMIN - super@gmail.com		PASSWORD - super
-
+				ADMIN - admin@gmail.com			PASSWORD - admin
+  				INSTRUCTOR - instructor@gmail.com	PASSWORD - instructor
+				STUDENT - student@gmail.com		PASSWORD - student
 
 Features of the class portal application:
 
@@ -18,5 +20,39 @@ Administrator
 
 4. Course Functionalities - Add, Remove and Edit course details
 
-5. 
+5. Enrollment Functionalities - Accept enrollment requests
+				Enroll/Remove students
+                                Post Grades
+
+6. Course Material Functionalities - Add new material or announcements
+				     View Announcements
+                                
+
+Instructor
+
+1. Edit Profile - View and edit profile (Can edit password)
+
+2. Course Material functionalities - Add and view announcements for courses teaching
+
+3. View History - View courses teaching and taught
+
+4. Enrollment Functionalities - Accept enrollment requests
+  			        Remove students
+				Post Grades
+
+Student
+
+1. Edit Profile - View and edit profile (can edit password)
+
+2. View Courses - View list of all courses
+
+3. Search Courses - Search depending on parameters
+ 		    Request for enrollment
+
+4. View History - View courses taken and taking along with grades
+
+5. Course Material Functionalities - View announcements for courses enrolled in
+
+6. Drop Courses - Drop courses presently enrolled in 
+
 
