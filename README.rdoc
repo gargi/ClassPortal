@@ -73,3 +73,7 @@ Request for enrollment
 5. Course Material Functionalities - View announcements for courses enrolled in
 
 6. Drop Courses - Drop courses presently enrolled in
+
+<b>
+Note to reviewers: Kindly do not change passwords or delete users listed on this page. It creates problems for the next reviewers.
+</b>
