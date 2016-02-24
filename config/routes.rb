@@ -28,7 +28,11 @@
   get 'enrollments/request_enroll' => 'enrollments#request_enroll'
 
   get 'courses/search' => 'courses#search'
+  get 'courses/inactive_request' => 'courses#inactive_request'
+  get 'courses/approve_inactive_request' => 'courses#approve_inactive_request'
   post 'courses/search' => 'courses#search_results'
+
+  get 'materials_course_selection' => 'materials#course_selection'
 
   get 'admins/index' => 'admins#index '
   get 'admins/show' => 'admins#show'

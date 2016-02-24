@@ -20,7 +20,7 @@
   <% elsif current_user.type == 'instructor'%>
     <%= link_to 'Edit Profile', controller: 'instructors', action: 'index'%>
     |
-    <%= link_to 'Course Material Functionalities', controller: 'materials', action: 'course_selection'%>
+    <%= link_to 'Course Functionalities', controller: 'materials', action: 'course_selection'%>
     |
     <%= link_to 'View History', {:controller => 'courses', :action => 'instructor_history'} %>
     |
