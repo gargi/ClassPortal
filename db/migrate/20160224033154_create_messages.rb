@@ -3,6 +3,7 @@ class CreateMessages < ActiveRecord::Migration
     create_table :messages do |t|
       t.integer :sender
       t.integer :receiver
+      t.string :subject
       t.string :message
 
       t.timestamps null: false

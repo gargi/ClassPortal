@@ -8,7 +8,7 @@
     <th>Title</th>
     <th>Instructor</th>
     <th>Status</th>
-    <th colspan="4"></th>
+    <th colspan="5"></th>
   </tr>
  
   <% @courses.each do |course| %>
@@ -27,6 +27,9 @@
             <td><%= link_to_if((course.status == "inactive_requested"), 'Approve inactive request',
                                {:controller => "courses",
                                 :action => "approve_inactive_request", :c => course.id }) %></td>
+              <td><%= link_to_if((course.status == "inactive_requested"), 'Reject inactive request',
+                                 {:controller => "courses",
+                                  :action => "reject_inactive_request", :c => course.id }) %></td>
               <% end %>
           <% end %>
     </tr>

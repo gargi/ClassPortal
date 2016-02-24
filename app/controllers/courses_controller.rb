@@ -90,9 +90,15 @@ class CoursesController < ApplicationController
 
   def approve_inactive_request
     @course = Course.find(params[:c])
-    #@course[:status] = 'requested'
     if @course.update(status: "inactive")
       redirect_to courses_path,notice: 'Request Approved!'
+    end
+  end
+
+  def reject_inactive_request
+    @course = Course.find(params[:c])
+    if @course.update(status: "active")
+      redirect_to courses_path,notice: 'Request Rejected!'
     end
   end
 

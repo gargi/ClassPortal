@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20160224033154) do
   create_table "messages", force: :cascade do |t|
     t.integer  "sender",     limit: 4
     t.integer  "receiver",   limit: 4
+    t.string   "subject",    limit: 255
     t.string   "message",    limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
