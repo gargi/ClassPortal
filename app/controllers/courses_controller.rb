@@ -70,6 +70,12 @@ class CoursesController < ApplicationController
     if @parameters[:user_id].to_s != ''
        @courses = @courses.where("user_id = ?",@parameters[:user_id].to_s)
     end
+    
+    @enroll = Enrollment.where("user_id = ?",current_user[:id])
+    @enrolledCourses = Array.new
+    @enroll.each do |enr|
+    	@enrolledCourses.push(enr.course_id.to_i)
+    end
   end
 
   def instructor_history 

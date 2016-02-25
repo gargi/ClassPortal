@@ -18,7 +18,7 @@
       <td><%= course.user_id %></td>
       <td><%= course.status%></td>
       <td><%= link_to 'View', course_path(course) %></td>
-     <% if course.status == 'active' %>
+     <% if course.status == 'active' and not @enrolledCourses.include?(course.id) %>
       <td><%= link_to 'Register', controller: 'enrollments', action: 'request_enroll',course_id:  course.id%></td>
      <% end %>
     </tr>

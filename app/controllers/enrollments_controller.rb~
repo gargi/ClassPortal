@@ -71,7 +71,7 @@ class EnrollmentsController < ApplicationController
   end
 
   def list_enrolled
-    @enrollments = Enrollment.where("user_id = ?",current_user[:id]).where("enrollment.status = ?","enrolled").where("grade = ?","-")
+    @enrollments = Enrollment.where("user_id = ?",current_user[:id]).where("enrollments.status = ?","enrolled").where("grade = ?","-")
   end
 
   def drop 
