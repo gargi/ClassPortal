@@ -10,5 +10,9 @@ class Course < ActiveRecord::Base
   validates :start_date, :presence=>true
   validates :end_date, :presence=>true
   validates :status, :presence=>true
+
+  before_save do
+    self.end_date >= self.start_date
+  end
   
 end
