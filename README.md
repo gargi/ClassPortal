@@ -69,9 +69,14 @@ Request for enrollment
 
 ## Extra Credit
 
-Below are the features developed as part
-1. Students and Instructors can exchange private messages: There is a link on the homepage of both Students and Instructors "Message Functionalities" which can be used to send a new message, see the received messages and also see the sent messages.
+Below are the features developed as part of extra credit:
+
+1. Students and Instructors can exchange private messages:
+ 
+ There is a link on the homepage of both Students and Instructors "Message Functionalities" which can be used to send a new message, see the received messages and also see the sent messages.
+
 2. An Instructor of the course can request to make a course “Inactive”. The request can be viewed by the admins only.
+
 Steps:
 - Login as an instructor and click on "Course Functionalities" link.
 - In the next page click on the "Send Request to Inactive"
