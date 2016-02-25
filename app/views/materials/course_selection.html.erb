@@ -15,8 +15,12 @@
       <td><%= course.title %></td>
       <td><%= course.user.email %></td>
       <td><%= course.status %></td>
-<td><%= link_to_if((course.status == "active"), 'View Announcements',{:controller => "materials", :action => "index", :c => course.id }) %></td>
-      
+      <td><%= link_to_if((course.status == "active" || course.status == "inactive_requested"), 'View Announcements',{:controller => "materials",
+                                                                      :action => "index", :c => course.id }) %></td>
+      <% if current_user.type == "instructor" %>
+          <td><%= link_to_if((course.status == "active"), 'Send Request to Inactive',{:controller => "courses",
+                                                                                  :action => "inactive_request", :c => course.id }) %></td>
+      <% end %>
     </tr>
   <% end %>
 </table>

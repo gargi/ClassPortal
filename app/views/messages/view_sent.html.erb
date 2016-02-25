@@ -1,0 +1,21 @@
+<h1>Sent Messages</h1>
+<table>
+  <tr>
+    <th>To</th>
+    <th>Subject</th>
+    <th>Time</th>
+    <th colspan="2"></th>
+  </tr>
+
+  <% @messages.each do |message| %>
+      <tr>
+        <td><%= User.find(message.receiver).name %></td>
+        <td><%= message.subject %></td>
+        <td><%= message.created_at %></td>
+        <td><%= link_to 'View', {:controller => "messages",
+                                 :action => "show", :c => message.id } %></td>
+        <td><%= link_to 'Delete', {:controller => "messages",
+                                   :action => "destroy", :c => message.id } %></td>
+      </tr>
+  <% end %>
+</table>

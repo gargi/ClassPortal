@@ -20,11 +20,13 @@
   <% elsif current_user.type == 'instructor'%>
     <%= link_to 'Edit Profile', controller: 'instructors', action: 'index'%>
     |
-    <%= link_to 'Course Material Functionalities', controller: 'materials', action: 'course_selection'%>
+    <%= link_to 'Course Functionalities', controller: 'materials', action: 'course_selection'%>
     |
     <%= link_to 'View History', {:controller => 'courses', :action => 'instructor_history'} %>
     |
-      <%= link_to 'Enrollment Functionalities', controller: 'enrollments', action: 'index'%>
+    <%= link_to 'Enrollment Functionalities', controller: 'enrollments', action: 'index'%>
+    |
+    <%= link_to 'Message Functionalities', controller: 'messages', action: 'index'%>
       
     
   <% else %>
@@ -40,7 +42,9 @@
       |
       <%= link_to 'Course Material Functionalities', controller: 'materials', action: 'course_selection' %>
       |
-      <%= link_to 'Drop Course', controller: 'enrollments', action: 'list_enrolled' %>	
+      <%= link_to 'Drop Course', controller: 'enrollments', action: 'list_enrolled' %>
+      |
+      <%= link_to 'Message Functionalities', controller: 'messages', action: 'index'%>
 
   <% end %>
 

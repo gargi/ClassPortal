@@ -90,6 +90,28 @@ class CoursesController < ApplicationController
     end
   end
 
+  def inactive_request
+    @course = Course.find(params[:c])
+    #@course[:status] = 'requested'
+    if @course.update(status: "inactive_requested")
+      redirect_to materials_course_selection_path,notice: 'Request Sent!'
+    end
+  end
+
+  def approve_inactive_request
+    @course = Course.find(params[:c])
+    if @course.update(status: "inactive")
+      redirect_to courses_path,notice: 'Request Approved!'
+    end
+  end
+
+  def reject_inactive_request
+    @course = Course.find(params[:c])
+    if @course.update(status: "active")
+      redirect_to courses_path,notice: 'Request Rejected!'
+    end
+  end
+
   private
   def course_params
     params.require(:course).permit(:course_number,:title,:description,:start_date,:end_date,:status,:user_id)

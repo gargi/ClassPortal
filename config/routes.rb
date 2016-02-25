@@ -5,6 +5,16 @@
   # root 'welcome#index'
 
   Rails.application.routes.draw do
+  get 'messages/new'
+
+  get 'messages/index'
+
+  get 'messages/show'
+
+  get 'messages/destroy'
+
+  get 'messages/view_sent'
+
   get 'about' => 'common_pages#about'
   get 'contact' => 'common_pages#contact'
   get 'references' => 'common_pages#references'
@@ -28,7 +38,12 @@
   get 'enrollments/request_enroll' => 'enrollments#request_enroll'
 
   get 'courses/search' => 'courses#search'
+  get 'courses/inactive_request' => 'courses#inactive_request'
+  get 'courses/approve_inactive_request' => 'courses#approve_inactive_request'
+  get 'courses/reject_inactive_request' => 'courses#reject_inactive_request'
   post 'courses/search' => 'courses#search_results'
+
+  get 'materials_course_selection' => 'materials#course_selection'
 
   get 'admins/index' => 'admins#index '
   get 'admins/show' => 'admins#show'
@@ -44,7 +59,8 @@
   resources :students
   resources :instructors
   resources :enrollments 
-  resources :materials 
+  resources :materials
+  resources :messages
   root 'home#index'
 
   # Example of regular route:
