@@ -39,6 +39,9 @@ class StudentsController < ApplicationController
   end
 
   def destroy
+    @enrollments = Enrollment.where("user_id = ?",params[:id])
+    @enrollments.destroy_all
+    
     @user = User.find(params[:id])
     
     @user.destroy

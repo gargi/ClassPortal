@@ -7,7 +7,7 @@ class CreateCourses < ActiveRecord::Migration
       t.date :start_date
       t.date :end_date
       t.string :status
-      t.number :user_id
+      t.integer :user_id,  foreign_key: {on_delete: :cascade}
 
       t.timestamps
 

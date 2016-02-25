@@ -41,6 +41,10 @@ class CoursesController < ApplicationController
   end
 
   def destroy
+    @enrollments = Enrollment.where("course_id = ?",params[:id])
+    @enrollments.destroy_all
+    @materials = Material.where("course_id = ?",params[:id])
+    @materials.destroy_all
     @course = Course.find(params[:id])
     
     @course.destroy

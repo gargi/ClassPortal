@@ -1,0 +1,9 @@
+class CreateMaterials < ActiveRecord::Migration
+  def change
+    create_table :materials do |t|
+      t.integer :course_id, foreign_key: {on_delete: :cascade}
+      t.string :content
+      t.timestamps null: false
+    end
+  end
+end

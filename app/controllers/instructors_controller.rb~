@@ -1,6 +1,10 @@
 class InstructorsController < ApplicationController
   def index
-    @users = User.where("type = ?","instructor")
+    if current_user[:type].to_s == "instructor"
+	@users = User.where("id = ?",current_user[:id])
+    else
+    	@users = User.where("type = ?","instructor")
+    end
   end
 
   def show
@@ -35,6 +39,13 @@ class InstructorsController < ApplicationController
   end
 
   def destroy
+    @courses = Course.where("user_id = ?",params[:id])
+    @courses.each do |course|
+    	@enrollments = Enrollment.where("course_id = ?",course.id)
+    	@enrollments.destroy
+    	@materials = Material.where("course_id = ?",course.id)
+    	@materials.destroy
+    @courses.destroy
     @user = User.find(params[:id])
     
     @user.destroy

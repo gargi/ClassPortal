@@ -1,4 +1,4 @@
 class Material < ActiveRecord::Base
-  belongs_to :course, :dependent => :destroy
+  belongs_to :course
   validates :content, :presence => true
 end

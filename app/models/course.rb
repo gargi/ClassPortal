@@ -1,7 +1,7 @@
 class Course < ActiveRecord::Base
 
   has_many  :enrollments
-  belongs_to  :user, :dependent => :destroy
+  belongs_to  :user
   has_one   :material
 
   validates :course_number, :presence=>true

@@ -41,6 +41,10 @@ class CoursesController < ApplicationController
   end
 
   def destroy
+    @enrollments = Enrollment.where("course_id = ?",params[:id])
+    @enrollments.destroy
+    @materials = Material.where("course_id = ?",params[:id])
+    @materials.destroy
     @course = Course.find(params[:id])
     
     @course.destroy
@@ -74,7 +78,7 @@ class CoursesController < ApplicationController
     @enroll = Enrollment.where("user_id = ?",current_user[:id])
     @enrolledCourses = Array.new
     @enroll.each do |enr|
-    	@enrolledCourses.push(enr.course_id)
+    	@enrolledCourses.push(enr.course_id.to_i)
     end
   end
 

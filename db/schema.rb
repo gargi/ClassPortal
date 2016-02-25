@@ -20,16 +20,16 @@ ActiveRecord::Schema.define(version: 20160219061010) do
     t.date     "start_date"
     t.date     "end_date"
     t.string   "status",        limit: 255
-    t.string   "user_id",       limit: 255
+    t.integer  "user_id",       limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "enrollments", force: :cascade do |t|
     t.string   "grade",      limit: 255
-    t.string   "course_id",  limit: 255
+    t.integer  "course_id",  limit: 4
     t.string   "status",     limit: 255
-    t.string   "user_id",    limit: 255
+    t.integer  "user_id",    limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
