@@ -10,7 +10,6 @@ class UsersControllerTest < ActionController::TestCase
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:users)
   end
 
   test "should get edit" do
