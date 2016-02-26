@@ -6,6 +6,9 @@
 <body>
 <center>
   <% if current_user.type == 'admin' || current_user.type == 'superadmin'%>
+      <p>To post grade, approve enrollment requests etc go to Enrollments Functionalities. To add new material/announcement
+      for the course go to Course Material Functionalities. To view the history for student or instructor go to
+      Student functionalities and Instructor functionalities links respectively</p>
     <%= link_to "Admin Functionalities", controller: 'admins', action: 'index'%>
       |
       <%= link_to 'Instructor Functionalities', controller: 'instructors', action: 'index'%>
@@ -18,6 +21,8 @@
       |
       <%= link_to 'Course Material Functionalities', controller: 'materials', action: 'course_selection'%>
   <% elsif current_user.type == 'instructor'%>
+      <p>To post grade, approve enrollment requests etc go to Enrollments Functionalities. To add new material/announcement
+        for the course go to Course Material Functionalities.</p>
     <%= link_to 'Edit Profile', controller: 'instructors', action: 'index'%>
     |
     <%= link_to 'Course Functionalities', controller: 'materials', action: 'course_selection'%>
@@ -31,10 +36,11 @@
     
   <% else %>
       <p>If you want to register for a course click on Search courses and search for courses you want to register.
-      to View the information regarding the registerd courses, click on the View courses. </p>
+      To view the information regarding all courses, click on the View All courses. To view the materials/announcements
+      for the courses, click on Course Material Functionalities.</p>
       <%= link_to 'Edit Profile', controller: 'students', action: 'index'%>
       |
-      <%= link_to 'View Courses', controller: 'courses', action: 'index'%>
+      <%= link_to 'View All Courses', controller: 'courses', action: 'index'%>
       |
       <%= link_to 'Search Courses', controller: 'courses', action: 'search'%>
       |

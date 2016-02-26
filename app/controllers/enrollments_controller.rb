@@ -63,11 +63,11 @@ class EnrollmentsController < ApplicationController
     	@enrollment[:user_id] = current_user[:id]
     	@enrollment[:course_id] = params[:course_id].to_s
     	@enrollment[:status] = 'requested'
-        @enrollment[:grade] = '-'
+      @enrollment[:grade] = '-'
     	@enrollment.save
         
     end    
-    redirect_to url_for(:controller => :courses, :action => :search) 
+    redirect_to url_for(:controller => :users, :action => :show),notice: 'Request Sent'
   end
 
   def list_enrolled
