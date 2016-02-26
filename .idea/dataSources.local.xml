@@ -4,11 +4,9 @@
     <data-source name="Rails ClassPortal: development" uuid="38caa68e-c23e-451f-ab03-8834107d4d6e">
       <first-sync>true</first-sync>
       <user-name>root</user-name>
-      <user-password>dfcbdfcedfc7dfc3dfc4df9bdf98df99</user-password>
     </data-source>
     <data-source name="Rails ClassPortal: test" uuid="d993ad71-70ce-4eeb-b3fe-c6accc489485">
       <user-name>root</user-name>
-      <user-password>dfcbdfcedfc7dfc3dfc4df9bdf98df99</user-password>
     </data-source>
     <data-source name="Rails ClassPortal: production" uuid="ed2bef54-f5b7-4f56-8aca-a287cb5123b9">
       <user-name>ClassPortal</user-name>
