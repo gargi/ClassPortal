@@ -18,6 +18,11 @@ class UsersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should show" do
+    get :show, id: @user
+    assert_response :success
+  end
+
   test "should make new" do
     get :new
     assert_response :success
