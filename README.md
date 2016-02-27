@@ -5,7 +5,7 @@ Below is the list of pre-configured users for this system:
 
 | Name         | Email                         | Password | Type  |
 | ------------- | ---------------------- 	|-------------|--------|
-| super          | super@ncsuedu    | super123        | superadmin|
+| super          | super@ncsu.edu    | super123        | superadmin|
 | admin         | admin@ncsu.edu      | admin123       | admin |
 | instructor    | instructor@ncsu.edu | instructor123 |    instructor  |
 | student		| student@ncsu.edu | student123 | student |
